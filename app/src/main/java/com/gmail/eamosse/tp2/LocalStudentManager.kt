@@ -55,6 +55,6 @@ class LocalStudentManager : StudentManager {
     }
 
     override fun clear() {
-        TODO("Not yet implemented")
+        students.clear()
     }
 }
