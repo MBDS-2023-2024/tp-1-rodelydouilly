@@ -1,4 +1,5 @@
 package com.gmail.eamosse.tp2
+import kotlin.IllegalArgumentException
 
 
 class LocalStudentManager : StudentManager {
@@ -23,7 +24,11 @@ class LocalStudentManager : StudentManager {
     }
 
     override fun sortAgeAscDesc(type: String): List<Student> {
-        TODO("Not yet implemented")
+        return when(type.uppercase()){
+        "ASC" -> students.sortedBy { it.age }
+            "DESC" -> students.sortedByDescending{ it.age }
+            else -> throw IllegalArgumentException("Le type doit etre ASC ou DESC")
+        }
     }
 
     override fun groupBySex(): Map<String, List<Student>> {
