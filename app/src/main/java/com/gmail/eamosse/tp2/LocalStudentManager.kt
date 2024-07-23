@@ -27,12 +27,13 @@ class LocalStudentManager : StudentManager {
         return when(type.uppercase()){
         "ASC" -> students.sortedBy { it.age }
             "DESC" -> students.sortedByDescending{ it.age }
-            else -> throw IllegalArgumentException("Le type doit etre ASC ou DESC")
+            else -> throw IllegalArgumentException("La valeure doit etre ASC ou DESC")
         }
     }
 
     override fun groupBySex(): Map<String, List<Student>> {
-        TODO("Not yet implemented")
+        return students.groupBy { it.sexe }
+
     }
 
     override fun boysOrGirls(sexe: String): List<Student> {
